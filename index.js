@@ -28,6 +28,8 @@ const server = http.createServer((req, res) => {
         content(res, 200, "file write success");
       }
     });
+  } else {
+    content(res, 400, "page not found");
   }
 });
 
