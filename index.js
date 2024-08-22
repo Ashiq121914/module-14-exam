@@ -1,14 +1,18 @@
+// modules
 const http = require("node:http");
 const fs = require("node:fs");
 
+// port
 const port = 5500;
 
+// function to remove duplicate codes
 function content(res, statusCode, message) {
   res.writeHead(statusCode, { "Content-Type": "text/html" });
   res.write(message);
   res.end();
 }
 
+// server creation with necessary routes
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
     content(res, 200, "This is the Home Page");
@@ -27,6 +31,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
+// server running
 server.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
